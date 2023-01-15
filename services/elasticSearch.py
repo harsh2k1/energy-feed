@@ -25,34 +25,54 @@ class ElasticSearch:
 
     # def deleteRecord
     @staticmethod
-    def fetchRecord(body, index=config['ES']['prod_index']):
-        res = es.search(index=index, body=body)
-        res = res['hits']['hits'][0]
-        return res
+    def fetchRecord(body, index=config['ES']['prod_index'], scroll="20m", scrolling=True, size=1000):
+        # def indexFetch(host:str, index:str, auth:str, body:dict, size:int=100, scroll = "20m", scrolling:bool = True) -> tuple:
+        
+        res = es.search(
+                    query = body,
+                    scroll =scroll,
+                    size = size,
+                    index = index,
+                    request_timeout=40,
+                )
+        
+        counter = 0 
+        sid =  res["_scroll_id"]
+        scroll_size = res['hits']['total']['value']
+        
+        data = res["hits"]["hits"]
+        sidList = []
+        sidList.append(sid)
+        if scrolling:
+            while (scroll_size > 0):
+                page = es.scroll(scroll_id = sid, scroll = scroll)
+                sid = page['_scroll_id']
+                sidList.append(sid)
+                scroll_size = len(page['hits']['hits'])
+                data+=page["hits"]["hits"]
+                counter = counter + 1
+
+        es.clear_scroll(scroll_id=sidList)
+        return data, counter
 
     
+# if __name__ == "__main__":
+#     # Inserting data
+    
+#     body = {
+#                     "bool":{
+#                         "must":[
+#                             {
+#                                 "exists":{
+#                                     "field":"guid"
+#                                 }
+#                             }
+#                         ]
+#                     }
+#                 }
+            
 
-# Inserting data
-
-doc_1 = {
-    "guid":"test",
-    "details":[{
-        "author":{
-            "name":"author1",
-            "description":"demo author created"
-        },
-        "category":{
-            "id":1,
-            "name":"Green Energy",
-            "slug":"green-energy"
-        },
-        "datasource":{
-            "dateOfPublication":"2023-01-01T00:00:00.000Z",
-            "name":"Green Technica",
-            "slug":"green-technica",
-            "url":"https://www.greentechnica.com"
-        },
-        "title":"demo title 1",
-        "summary":"demo summary 1"
-    }]
-}
+#     es_obj = ElasticSearch()
+#     data, _ = es_obj.fetchRecord(body=body)
+#     # print(es_obj.fetchRecord(body=body))
+#     print(data[1])
