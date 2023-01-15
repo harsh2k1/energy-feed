@@ -20,8 +20,8 @@ class Schema:
         }
 
         sentiment = {
-            "polarity":float,
-            "type":str
+            "compound":float,
+            "polarity": {"neutral":float, "positive":float, "negative":float}
         }
 
         author = {
@@ -47,7 +47,7 @@ class Schema:
             "author":author,
             "image":str,
             "named_entities":named_entities, # list of dict
-            "raw_data":str
+            "raw_text":str
         }
         return {
             "guid":str,
