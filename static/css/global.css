@@ -1,0 +1,33 @@
+:root {
+    /* fonts */
+    --font-montserrat-semibold: Montserrat-SemiBold;
+    --font-montserrat-regular: Montserrat-Regular;
+    --font-montserrat-bold: Montserrat-Bold;
+    --font-montserrat: Montserrat;
+    --font-montserrat-medium: Montserrat-Medium;
+  
+    /* font sizes */
+    --font-size-base: 12px;
+    --font-size-lg: 13px;
+    --font-size-xl: 14px;
+    --font-size-2xl: 16px;
+    --font-size-3xl: 17.3px;
+    --font-size-4xl: 19px;
+    --font-size-5xl: 21.44px;
+    --font-size-6xl: 21.46px;
+    --font-size-7xl: 27px;
+    --font-size-8xl: 28px;
+    --font-size-9xl: 29px;
+  
+    /* Colors */
+    --color-white: #fff;
+    --color-gray-100: #f2f2f2;
+    --color-gray-200: rgba(0, 0, 0, 0);
+    --color-blue: #0014db;
+    --color-black: #000;
+  
+    /* border radiuses */
+    --br-sm: 7.06px;
+    --br-md: 11.58px;
+    --br-lg: 16px;
+  }

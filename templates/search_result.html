@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link href="{{ url_for('static', path='/css/global.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/search-result.css') }}" rel="stylesheet">
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat-SemiBold:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat-Bold:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat-Regular:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat-Medium:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="serach-result">
+      <img class="path-21-icon" alt="" src="{{ url_for('static',path='css/path-21.svg') }}" /><button
+        class="home3"
+        id="home"
+      >
+        home
+      </button>
+      <div class="search2">search</div>
+      <div class="about-us2">about us</div>
+      <div class="dashboard4">dashboard</div>
+      <img
+        class="serach-result-child"
+        alt=""
+        src="{{ url_for('static',path='css/group-15.svg') }}"
+      /><textarea class="serach-result-item" placeholder="type here"></textarea>
+      <div class="serach-result-inner"></div>
+      <div class="search3">search</div>
+      
+      {% for title in titles %}
+
+      <div class="lorem-ipsum-lorem-ipsum-lorem-parent">
+        <b class="lorem-ipsum-lorem">{{ title }}</b>
+        <div class="lorem-ipsumlorem-ipsumlorem-container1">
+          <p class="lorem-ipsumlorem-ipsumlorem2">
+            Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum
+          </p>
+          <p class="lorem-ipsumlorem-ipsumlorem2">
+            Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum
+          </p>
+        </div>
+        <div class="by-loreum-ipsum">by loreum ipsum</div>
+        <div class="date">date</div>
+        <div class="group-child"></div>
+        <div class="group-item"></div>
+        <div class="group-inner"></div>
+        <div class="rectangle-div"></div>
+        <div class="group-child1"></div>
+        <div class="lorem-ipsum-1">lorem ipsum 1</div>
+        <div class="lorem-ipsum-11">lorem ipsum 1</div>
+        <div class="lorem-ipsum-12">lorem ipsum 1</div>
+        <div class="lorem-ipsum-13">lorem ipsum 1</div>
+        <img class="ellipse-icon" alt="" src="{{ url_for('static', path='/css/ellipse-5.svg') }}" />
+        <div class="group-child2"></div>
+        <div class="category">Category</div>
+      </div>
+      {% endfor %}
+
+      <!-- ############################## -->
+      <div class="lorem-ipsum-lorem-ipsum-lorem-parent">
+        <b class="lorem-ipsum-lorem">Just checking</b>
+        <div class="lorem-ipsumlorem-ipsumlorem-container1">
+          <p class="lorem-ipsumlorem-ipsumlorem2">
+            Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum
+          </p>
+          <p class="lorem-ipsumlorem-ipsumlorem2">
+            Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum
+          </p>
+        </div>
+        <div class="by-loreum-ipsum">by loreum ipsum</div>
+        <div class="date">date</div>
+        <div class="group-child"></div>
+        <div class="group-item"></div>
+        <div class="group-inner"></div>
+        <div class="rectangle-div"></div>
+        <div class="group-child1"></div>
+        <div class="lorem-ipsum-1">lorem ipsum 1</div>
+        <div class="lorem-ipsum-11">lorem ipsum 1</div>
+        <div class="lorem-ipsum-12">lorem ipsum 1</div>
+        <div class="lorem-ipsum-13">lorem ipsum 1</div>
+        <img class="ellipse-icon" alt="" src="{{ url_for('static', path='/css/ellipse-5.svg') }}" />
+        <div class="group-child2"></div>
+        <div class="category">Category</div>
+      </div>
+      <!-- ############################## -->
+      
+      
+      <div class="serach-result-child1"></div>
+      <div class="serach-result-child2"></div>
+      <div class="serach-result-child3"></div>
+      <div class="div">1</div>
+      <div class="next">Next</div>
+      <div class="previous">Previous</div>
+      <div class="div1">2</div>
+      <div class="div2">3</div>
+        
+
+
+    <script>
+      var home = document.getElementById("home");
+      if (home) {
+        home.addEventListener("click", function (e) {
+          window.location.href = "/";
+        });
+      }
+      </script>
+  </body>
+</html>

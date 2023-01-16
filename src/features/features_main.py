@@ -18,7 +18,8 @@ class Features:
     def __init__(self) -> None:
         # self.entity = entity
         self.data = []
-        self.updated_records = []
+        with open("/Users/harshpreetsingh/Documents/iit_madras_hackathon/repository/ns-python/data_dump/updated_records.json","r") as f:
+            self.updated_records = json.loads(f.read())
     
     @staticmethod
     def extractKeywords(text: str) -> list:
@@ -59,7 +60,7 @@ class Features:
             self.data, _ = es_obj.fetchRecord(body=body)
         
         elif status == 'u':
-            for data in self.updated_records:
+            for data in tqdm(self.updated_records):
                 es_obj.updateRecord(data=data, guid=data['guid'])
 
 
@@ -93,6 +94,6 @@ class Features:
 
 if __name__ == "__main__":
     obj = Features()
-    obj.get_features()
+    obj.commonUtility(status='u')
     
 

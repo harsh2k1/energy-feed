@@ -60,16 +60,18 @@ class ElasticSearch:
 #     # Inserting data
     
 #     body = {
-#                     "bool":{
-#                         "must":[
-#                             {
-#                                 "exists":{
-#                                     "field":"guid"
-#                                 }
-#                             }
-#                         ]
+#         "bool":{
+#             "must":[
+#                 {
+#                     "term":{
+#                         "details.category.name":{
+#                             "value": "Solar Energy"
+#                         }
 #                     }
 #                 }
+#             ]
+#         }
+#     }
             
 
 #     es_obj = ElasticSearch()

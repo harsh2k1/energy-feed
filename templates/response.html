@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', path='/css/global.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/temp.css') }}" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    {% for title in titles %}
+
+      <div class="lorem-ipsum-lorem-ipsum-lorem-parent">
+        <b class="lorem-ipsum-lorem">{{ title }}</b>
+        <div class="lorem-ipsumlorem-ipsumlorem-container1">
+          <p class="lorem-ipsumlorem-ipsumlorem2">
+            Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum
+          </p>
+          <p class="lorem-ipsumlorem-ipsumlorem2">
+            Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum
+          </p>
+        </div>
+        <div class="by-loreum-ipsum">by loreum ipsum</div>
+        <div class="date">date</div>
+        <div class="group-child"></div>
+        <div class="group-item"></div>
+        <div class="group-inner"></div>
+        <div class="rectangle-div"></div>
+        <div class="group-child1"></div>
+        <div class="lorem-ipsum-1">lorem ipsum 1</div>
+        <div class="lorem-ipsum-11">lorem ipsum 1</div>
+        <div class="lorem-ipsum-12">lorem ipsum 1</div>
+        <div class="lorem-ipsum-13">lorem ipsum 1</div>
+        <img class="ellipse-icon" alt="" src="{{ url_for('static', path='/css/ellipse-5.svg') }}" />
+        <div class="group-child2"></div>
+        <div class="category">Category</div>
+      </div>
+      <div class="space"></div>
+      {% endfor %}
+</body>
+</html>
