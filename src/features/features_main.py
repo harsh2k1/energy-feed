@@ -18,8 +18,8 @@ class Features:
     def __init__(self) -> None:
         # self.entity = entity
         self.data = []
-        with open("/Users/harshpreetsingh/Documents/iit_madras_hackathon/repository/ns-python/data_dump/updated_records.json","r") as f:
-            self.updated_records = json.loads(f.read())
+        # with open("/Users/harshpreetsingh/Documents/iit_madras_hackathon/repository/ns-python/data_dump/updated_records.json","r") as f:
+        #     self.updated_records = json.loads(f.read())
     
     @staticmethod
     def extractKeywords(text: str) -> list:
