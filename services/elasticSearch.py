@@ -56,25 +56,21 @@ class ElasticSearch:
         return data, counter
 
     
-# if __name__ == "__main__":
-#     # Inserting data
+if __name__ == "__main__":
+    import json
+    import sys
+    from tqdm import tqdm
+    sys.path.append("./")
+    from services.guid_generator import get_guid
+    with open("/Users/harshpreetsingh/Documents/iit_madras_hackathon/repository/ns-python/data_dump/clean-technica.json","r") as f:
+        new_records = json.loads(f.read())
     
-#     body = {
-#         "bool":{
-#             "must":[
-#                 {
-#                     "term":{
-#                         "details.category.name":{
-#                             "value": "Solar Energy"
-#                         }
-#                     }
-#                 }
-#             ]
-#         }
-#     }
-            
-
-#     es_obj = ElasticSearch()
-#     data, _ = es_obj.fetchRecord(body=body)
-#     # print(es_obj.fetchRecord(body=body))
-#     print(data[1])
+    for record in tqdm(new_records[1:]):
+        new_record = {}
+        guid = get_guid(record)
+        new_record['guid'] = guid
+        new_record['details'] = [record]
+        es_obj = ElasticSearch()
+        es_obj.addRecord(new_record)
+        # break
+        
